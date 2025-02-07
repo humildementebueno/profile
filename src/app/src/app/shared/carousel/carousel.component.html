@@ -1,0 +1,28 @@
+<div style="display: flex; justify-content: center;">
+  <div class="carousel">
+    <h2 class="carousel-title">{{ items[currentIndex].title }}</h2>
+
+    <div class="carousel-container">
+      <button class="nav-button prev" (click)="prev()">←</button>
+
+      <div class="carousel-content">
+        <img [src]="items[currentIndex].image" [alt]="items[currentIndex].title">
+      </div>
+
+      <button class="nav-button next" (click)="next()">→</button>
+    </div>
+
+    <div class="carousel-indicators">
+      <button *ngFor="let item of items; let i = index" [class.active]="i === currentIndex" (click)="selectSlide(i)">
+      </button>
+    </div>
+
+
+    <div style="text-align: center;">
+      <h2>Technologies Used</h2>
+      <div class="technologies">
+        <img *ngFor="let tech of items[currentIndex].technologies" [src]="tech" class="tech-icon" alt="technology">
+      </div>
+    </div>
+  </div>
+</div>
