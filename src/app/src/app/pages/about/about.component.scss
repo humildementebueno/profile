@@ -1,14 +1,16 @@
-/* Sección de "Sobre mí" */
 .about-me-section {
+    min-height: calc(100vh - 60px);
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 10px;
+    padding: 20px;
     background-color: #f9f9f9;
 }
 
 .profile-container {
+    height: 100%;
+    overflow-y: auto;
     max-width: 700px;
     background-color: #fff;
     padding: 20px;
