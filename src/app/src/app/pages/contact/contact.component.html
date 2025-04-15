@@ -1,7 +1,48 @@
-<div style="display: flex; justify-content: center; height: 90vh; align-items: anchor-center;">
-    <div class="development-container">
-        <div class="development-icon">🚧</div>
-        <p class="development-message">Página en Desarrollo</p>
-        <p class="development-submessage">Estamos trabajando para traerte la mejor experiencia. ¡Vuelve pronto!</p>
+<div style="height: 93vh;">
+    <div class="container-contact" style="display: flex; height: 100%; width: 100%;">
+        <div class="container-anuncios" style="width: 50%; height: auto;"></div>
+        <div class="container-form"
+            style="width: 50%; height: auto; display: flex; justify-content: center; align-items: center;">
+            <form style="height: 100%; width: 100%; display: flex; justify-content: center;" [formGroup]="contactForm"
+                (ngSubmit)="onSubmit()">
+                <div class="block-one"
+                    style="display: flex; flex-direction: column; height:100%; width: 40%; justify-content: space-evenly;">
+
+                    <div style="display: flex; justify-content: space-around; flex-direction: column;">
+                        <label for="name">Nombre</label>
+                        <input id="name" formControlName="name" placeholder="Nombre">
+                        <div *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched"
+                            style="color: red;">
+                            El nombre es obligatorio.
+                        </div>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-around; flex-direction: column;">
+                        <label for="email">Correo Electrónico</label>
+                        <input id="email" formControlName="email" placeholder="Correo Electrónico">
+                        <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched"
+                            style="color: red;">
+                            <div *ngIf="contactForm.get('email')?.errors?.['required']">
+                                El correo electrónico es obligatorio.
+                            </div>
+                            <div *ngIf="contactForm.get('email')?.errors?.['email']">
+                                Debe ser un correo electrónico válido.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-around; flex-direction: column;">
+                        <label for="message">Mensaje</label>
+                        <textarea id="message" formControlName="message" placeholder="Mensaje"></textarea>
+                        <div *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched"
+                            style="color: red;">
+                            El mensaje es obligatorio.
+                        </div>
+                    </div>
+
+                    <button type="submit" [disabled]="contactForm.invalid">Enviar</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>

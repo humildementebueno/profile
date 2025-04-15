@@ -1,105 +1,89 @@
+.carousel-component {
+  height: 95vh;
+}
+
 .carousel {
+  text-align: center;
+  height: 90vh;
+}
+
+.carousel-container {
   position: relative;
+  padding: 10px;
+  height: 78%;
+}
+
+.carousel-content {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-content img {
+  height: 50vh;
+  max-width: 100%;
+  border-radius: 30px;
+}
 
 
-  .carousel-title {
-    text-align: center;
-    margin-bottom: 20px;
-  }
+.nav-button {
+  margin: 0 10px;
+  background-color: #0d6efd;
+  color: white;
+}
 
-  .carousel-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-  }
+.next {
+  position: absolute;
+  top: 50%;
+  height: 52px;
+  right: 4%;
+  width: 48px;
 
-  .carousel-content {
-    width: 700px;
-    height: 550px;
-    position: relative;
-    overflow: hidden;
-    border-radius: 20px;
+}
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
+.prev {
+  position: absolute;
+  top: 50%;
+  height: 52px;
+  left: 4%;
+  width: 48px;
 
-    @media (max-width: 1200px) {
-      width: 600px;
-      height: 450px;
-    }
+  z-index: 1;
+}
 
-    @media (max-width: 768px) {
-      width: 500px;
-      height: 375px;
-    }
+.carousel-block {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  flex-flow: column;
+}
 
-    @media (max-width: 576px) {
-      width: 100%;
-      height: 300px;
-    }
-  }
+.carousel-indicators {
+  height: 7%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  .technologies {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    padding: 10px;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 20px;
+.carousel-indicators button.active {
+  background-color: #0d6efd;
+}
 
-    .tech-icon {
-      width: 70px;
-      height: 70px;
-      object-fit: contain;
-      border-radius: 35px;
-    }
-  }
+.tecnology-used {
+  height: 15vh;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
 
-  .nav-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    z-index: 2;
+.tecnology-used .tech-icon {
+  width: 40px;
+  height: 40px;
+  margin: 0 5px;
+}
 
-    &.prev {
-      left: 10px;
-    }
-
-    &.next {
-      right: 10px;
-    }
-
-    &:hover {
-      background: rgba(0, 0, 0, 0.8);
-    }
-  }
-
-  .carousel-indicators {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
-
-    button {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      border: none;
-      background: #ccc;
-      cursor: pointer;
-
-      &.active {
-        background: #333;
-      }
-    }
-  }
+h2 {
+  margin: 0;
 }

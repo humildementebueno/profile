@@ -1,13 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { CarouselItem } from './carousel.interface';
 
 @Component({
   selector: 'app-carousel',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatCardModule, MatButtonModule, MatIconModule],
   templateUrl: './carousel.component.html',
-  styleUrl: './carousel.component.scss'
+  styleUrls: ['./carousel.component.scss']
 })
 export class CarouselComponent {
   @Input() items: CarouselItem[] = [];
@@ -24,7 +27,7 @@ export class CarouselComponent {
   }
 
   ngOnDestroy(): void {
-    if(this.autoplayInterval){
+    if (this.autoplayInterval) {
       clearInterval(this.autoplayInterval)
     }
   }
@@ -35,16 +38,15 @@ export class CarouselComponent {
     }, this.interval);
   }
 
-  next(){
+  next() {
     this.currentIndex = (this.currentIndex + 1) % this.items.length;
   }
 
-  prev(){
+  prev() {
     this.currentIndex = (this.currentIndex - 1 + this.items.length) % this.items.length;
   }
 
   selectSlide(index: number) {
     this.currentIndex = index;
   }
-
 }
